@@ -15,13 +15,11 @@ import java.time.LocalDate;
 @ToString
 public class TrainerWorkload {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    private Long trainingId;
     private String username;
     private String firstName;
     private String lastName;
     private boolean isActive;
     private LocalDate date;
-    private int totalTrainingHours;
+    private int trainingHours;
 }
