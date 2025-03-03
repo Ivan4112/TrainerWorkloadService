@@ -1,4 +1,4 @@
-package org.edu.fpm.trainerworkloadservice.service;
+package org.edu.fpm.trainerworkloadservice.service.messaging.listener;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.edu.fpm.trainerworkloadservice.dto.ExternalTrainingServiceDTO;

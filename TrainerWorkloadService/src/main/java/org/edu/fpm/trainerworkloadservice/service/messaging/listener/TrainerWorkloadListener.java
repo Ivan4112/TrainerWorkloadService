@@ -1,10 +1,11 @@
-package org.edu.fpm.trainerworkloadservice.service;
+package org.edu.fpm.trainerworkloadservice.service.messaging.listener;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.edu.fpm.trainerworkloadservice.dto.ExternalTrainingServiceDTO;
 import org.edu.fpm.trainerworkloadservice.entity.TrainerWorkloadSummary;
+import org.edu.fpm.trainerworkloadservice.service.TrainerWorkloadService;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class TrainerWorkloadListener {
         try {
             ExternalTrainingServiceDTO training = objectMapper.readValue(message, ExternalTrainingServiceDTO.class);
             trainerWorkloadService.updateWorkload(training);
-            System.out.println("Received training update: " + training.trainingId());
+            log.info("Received training update for user: {}", training.trainerUsername());
         } catch (Exception e) {
             throw new RuntimeException("Failed to deserialize training update", e);
         }
@@ -40,6 +41,7 @@ public class TrainerWorkloadListener {
         try {
             TrainerWorkloadSummary summary = trainerWorkloadService.getMonthlyWorkloadSummary(username);
             String sendStatisticsMessage = objectMapper.writeValueAsString(summary);
+            log.info("sending json type statistics: {} ", sendStatisticsMessage);
             jmsTemplate.convertAndSend("workload-response-statistics", sendStatisticsMessage);
         } catch (JsonProcessingException e) {
             sendToDeadLetterQueue(username, "JSON serialization error");

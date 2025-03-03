@@ -38,13 +38,4 @@ public class TrainerWorkloadController {
         TrainerWorkloadSummary summary = service.getMonthlyWorkloadSummary(username);
         return ResponseEntity.ok(summary);
     }
-
-    @PostMapping("/init")
-    public ResponseEntity<String> initializeTrainerWorkload(
-            @RequestHeader(value = "X-Transaction-Id", required = false) String transactionId,
-            @RequestBody List<ExternalTrainingServiceDTO> trainingData) {
-        log.info("TransactionId: {}", transactionId);
-        service.saveAllTrainings(trainingData);
-        return ResponseEntity.ok("Trainer workload initialized successfully");
-    }
 }
