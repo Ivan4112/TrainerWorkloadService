@@ -138,6 +138,6 @@ public class TrainerWorkloadService {
 
     public TrainerWorkloadSummary fallbackGetMonthlyWorkloadSummary(String username, Throwable throwable) {
         log.error("🔄 Circuit Breaker activated for getMonthlyWorkloadSummary. Error: {}", throwable.getMessage());
-        return new TrainerWorkloadSummary(username, "N/A", "N/A", false, new ArrayList<>());
+        return new TrainerWorkloadSummary(username, null, null, false, new ArrayList<>());
     }
 }

@@ -119,6 +119,6 @@ class TrainerWorkloadServiceTest {
         TrainerWorkloadSummary summary = trainerWorkloadService.fallbackGetMonthlyWorkloadSummary("trainer1", new RuntimeException("Error"));
         assertNotNull(summary);
         assertEquals("trainer1", summary.getUsername());
-        assertEquals("N/A", summary.getFirstName());
+        assertNull(summary.getFirstName());
     }
 }

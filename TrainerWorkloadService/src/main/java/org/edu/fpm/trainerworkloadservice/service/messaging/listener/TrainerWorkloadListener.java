@@ -47,8 +47,6 @@ public class TrainerWorkloadListener {
             sendToDeadLetterQueue(username, "JSON serialization error");
         } catch (IllegalArgumentException e) {
             sendToDeadLetterQueue(username, "Invalid username");
-        } catch (Exception e) {
-            sendToDeadLetterQueue(username, "Unknown error: " + e.getMessage());
         }
     }
 
