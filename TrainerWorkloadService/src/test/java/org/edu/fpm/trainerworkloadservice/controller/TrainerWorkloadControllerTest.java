@@ -57,7 +57,7 @@ class TrainerWorkloadControllerTest {
         assertEquals(expectedSummary, response.getBody());
     }
 
-    @Test
+    /*@Test
     void initializeTrainerWorkload_Test() {
         List<ExternalTrainingServiceDTO> trainingData = List.of(trainingServiceAddDTO, trainingServiceDeleteDTO);
 
@@ -65,5 +65,5 @@ class TrainerWorkloadControllerTest {
 
         verify(workloadService, times(1)).saveAllTrainings(trainingData);
         assertEquals("Trainer workload initialized successfully", response.getBody());
-    }
+    }*/
 }

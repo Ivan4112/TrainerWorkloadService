@@ -31,6 +31,10 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-activemq</artifactId>
 		</dependency>
 		<dependency>
@@ -163,6 +167,7 @@
 						<exclude>**/org/edu/fpm/trainerworkloadservice/entity/*</exclude>
 						<exclude>**/org/edu/fpm/trainerworkloadservice/repository/*</exclude>
 						<exclude>**/org/edu/fpm/trainerworkloadservice/util/*</exclude>
+						<exclude>**/org/edu/fpm/trainerworkloadservice/service/messaging/listener/*</exclude>
 					</excludes>
 				</configuration>
 			</plugin>

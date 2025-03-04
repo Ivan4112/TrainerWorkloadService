@@ -8,8 +8,8 @@ public class TestDataFactory {
 
     public static ExternalTrainingServiceDTO externalTrainingAdd(ActionType actionType) {
         return new ExternalTrainingServiceDTO(
-                1L, "trainerUsername",
-                "trainerFirstName", "trainerLastName", true,
-                LocalDate.now(), 10, actionType);
+                "trainerUsername", "trainerFirstName",
+                "trainerLastName", true,
+                LocalDate.now().plusDays(2), 3, actionType);
     }
 }

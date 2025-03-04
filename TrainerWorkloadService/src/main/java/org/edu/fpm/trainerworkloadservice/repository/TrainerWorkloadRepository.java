@@ -1,16 +1,12 @@
 package org.edu.fpm.trainerworkloadservice.repository;
 
-import org.edu.fpm.trainerworkloadservice.entity.TrainerWorkload;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.edu.fpm.trainerworkloadservice.entity.TrainerWorkloadSummary;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface TrainerWorkloadRepository extends JpaRepository<TrainerWorkload, Long> {
-    List<TrainerWorkload> findByUsername(String username);
+public interface TrainerWorkloadRepository extends MongoRepository<TrainerWorkloadSummary, String> {
+    Optional<TrainerWorkloadSummary> findByUsername(String username);
 }
