@@ -167,6 +167,7 @@
 						<exclude>**/org/edu/fpm/trainerworkloadservice/entity/*</exclude>
 						<exclude>**/org/edu/fpm/trainerworkloadservice/repository/*</exclude>
 						<exclude>**/org/edu/fpm/trainerworkloadservice/util/*</exclude>
+						<exclude>**/org/edu/fpm/trainerworkloadservice/service/messaging/listener/*</exclude>
 					</excludes>
 				</configuration>
 			</plugin>

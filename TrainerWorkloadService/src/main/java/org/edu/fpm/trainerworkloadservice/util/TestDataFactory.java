@@ -10,6 +10,6 @@ public class TestDataFactory {
         return new ExternalTrainingServiceDTO(
                 "trainerUsername", "trainerFirstName",
                 "trainerLastName", true,
-                LocalDate.now(), 3, actionType);
+                LocalDate.now().plusDays(2), 3, actionType);
     }
 }

@@ -140,11 +140,4 @@ public class TrainerWorkloadService {
         log.error("🔄 Circuit Breaker activated for getMonthlyWorkloadSummary. Error: {}", throwable.getMessage());
         return new TrainerWorkloadSummary(username, "N/A", "N/A", false, new ArrayList<>());
     }
-    public int getMinTrainingDuration() {
-        return minTrainingDuration;
-    }
-
-    public int getMaxTrainingDuration() {
-        return maxTrainingDuration;
-    }
 }
