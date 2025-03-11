@@ -25,8 +25,13 @@ public class TrainerWorkloadController {
             @RequestBody ExternalTrainingServiceDTO request) {
         log.info("Received request with TransactionId: {}", transactionId);
         log.info("Received body from main microservice {}", request);
-        service.updateWorkload(request);
-        return ResponseEntity.ok("Workload updated successfully.");
+        try {
+            service.updateWorkload(request);
+            return ResponseEntity.ok("Workload updated successfully.");
+        } catch (IllegalArgumentException e) {
+            log.error("Validation failed: {}", e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @GetMapping("/monthly-summary")
