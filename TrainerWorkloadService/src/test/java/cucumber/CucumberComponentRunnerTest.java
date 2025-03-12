@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:target/cucumber-component-report.html"},
         glue = "cucumber.component",
         monochrome = true,
-        tags = "@ComponentTest"
+        tags = "@componentTest"
 )
 public class CucumberComponentRunnerTest {
 }

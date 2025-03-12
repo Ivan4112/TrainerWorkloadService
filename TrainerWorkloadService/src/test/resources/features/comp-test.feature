@@ -1,4 +1,4 @@
-@ComponentTest
+@componentTest
 Feature: Trainer Workload Management
 
   Scenario: Successfully update trainer workload
